@@ -38,3 +38,10 @@
   - El fondo de `body` usa `background-attachment: fixed`: bajo "Próximos 4 días" se ve blanco y el texto no se lee en la captura de página completa. Corrección propuesta: quitar `fixed` y usar `min-height: 100vh`.
   - Las fechas largas muestran "De" en mayúscula por `text-transform: capitalize`. Corrección propuesta: quitar la transformación CSS y capitalizar solo la primera letra en `render.js`.
   - Propuesta no aprobada: regla de revisión visual de capturas y verificación automática de contraste en la prueba.
+
+## 2026-10-28 00:2x (aprox.) | agente: build (claude-haiku-5-5)
+- **Prompt:** Subir el proyecto a GitHub, usuario jabtools. Aprobado el plan propuesto (nombre `tiempo`, repositorio privado, descripción recomendada).
+- **Cambios:**
+  - Creado el repositorio privado https://github.com/jabtools/tiempo (cuenta `jabtools`, autenticación con GitHub CLI).
+  - Configurado el remoto `origin` y subida la rama `master` con el commit `f28d973`.
+  - Sin cambios en el código de la aplicación.
