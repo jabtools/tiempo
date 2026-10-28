@@ -1,0 +1,9 @@
+# Capturas generadas por las pruebas de navegador
+tests/capturas/
+
+# Variables de entorno y secretos (si se usan en el futuro)
+.env
+
+# Archivos temporales de sistema
+Thumbs.db
+.DS_Store

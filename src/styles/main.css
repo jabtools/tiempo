@@ -1,0 +1,398 @@
+/* ==========================================================
+   Estilos de la aplicación de clima.
+   Paleta: azul profundo (fondo) con acentos cálidos para el sol
+   y colores fríos/cálidos para temperaturas.
+   ========================================================== */
+
+:root {
+  --fondo-inicio: #0b1f3a;
+  --fondo-medio: #14467a;
+  --fondo-fin: #1f7ab5;
+  --texto: #f4f8fc;
+  --texto-suave: #bcd6ec;
+  --acento: #ffd166;
+  --tarjeta: rgba(255, 255, 255, 0.10);
+  --tarjeta-borde: rgba(255, 255, 255, 0.20);
+  --frio: #8fdcff;
+  --templado: #ffe08a;
+  --calor: #ff9f68;
+  --radio: 18px;
+  --fuente: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--fuente);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--texto);
+  background: linear-gradient(160deg, var(--fondo-inicio), var(--fondo-medio) 55%, var(--fondo-fin)) fixed;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ---------- Cabecera y controles ---------- */
+
+.cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 28px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.marca-icono {
+  font-size: 2.2rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.selector {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+select {
+  min-width: 200px;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--texto);
+  background: rgba(8, 24, 46, 0.6);
+  border: 1px solid var(--tarjeta-borde);
+  border-radius: 10px;
+}
+
+select option {
+  color: #0b1f3a;
+}
+
+.boton {
+  padding: 9px 16px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--texto);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--tarjeta-borde);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.boton:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.boton:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 2px;
+}
+
+/* El botón de idioma se marca cuando la interfaz está en inglés. */
+.boton-idioma[aria-pressed="true"] {
+  color: #0b1f3a;
+  background: var(--acento);
+  border-color: var(--acento);
+}
+
+/* ---------- Contenido ---------- */
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+.estado {
+  margin: 40px 0;
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--acento);
+}
+
+.titulo-seccion {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.tarjeta {
+  padding: 20px;
+  background: var(--tarjeta);
+  border: 1px solid var(--tarjeta-borde);
+  border-radius: var(--radio);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.etiqueta {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+  text-transform: capitalize;
+}
+
+.condicion {
+  margin: 4px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.sub {
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+/* ---------- Hero (clima actual) ---------- */
+
+.tarjeta-hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-principal {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-icono {
+  font-size: 6rem;
+  line-height: 1;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
+}
+
+.temp-grande {
+  margin: 0;
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.temp-frio {
+  color: var(--frio);
+}
+
+.temp-templado {
+  color: var(--templado);
+}
+
+.temp-calor {
+  color: var(--calor);
+}
+
+.hero-minmax {
+  display: flex;
+  gap: 14px;
+}
+
+.hero-minmax div {
+  min-width: 96px;
+  padding: 12px 18px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+}
+
+.hero-minmax span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.hero-minmax strong {
+  font-size: 1.8rem;
+}
+
+/* ---------- Parámetros ---------- */
+
+.params {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.parametro {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+}
+
+.param-icono {
+  font-size: 1.6rem;
+}
+
+.param-etiqueta {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.param-valor {
+  margin: 2px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.param-detalle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.flecha {
+  display: inline-block;
+  font-weight: 700;
+}
+
+/* ---------- Ayer ---------- */
+
+.tarjeta-compacta .fila-dia {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.icono-grande {
+  font-size: 2.6rem;
+  line-height: 1;
+}
+
+.fecha {
+  margin: 0;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.minmax {
+  display: flex;
+  gap: 12px;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.max {
+  color: var(--calor);
+}
+
+.min {
+  color: var(--frio);
+}
+
+.resumen-dia {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+/* ---------- Pronóstico ---------- */
+
+.grid-dias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+}
+
+.dia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.dia-nombre {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.dia-fecha {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.dia-detalles {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.dia-detalles li {
+  margin: 2px 0;
+}
+
+/* ---------- Pie y adaptación a móviles ---------- */
+
+.pie {
+  padding: 0 0 24px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+@media (max-width: 600px) {
+  .cabecera {
+    padding: 16px;
+  }
+
+  .hero-icono {
+    font-size: 4.5rem;
+  }
+
+  .temp-grande {
+    font-size: 3.4rem;
+  }
+}

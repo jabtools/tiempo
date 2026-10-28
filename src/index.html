@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clima Santiago</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header class="cabecera">
+    <div class="marca">
+      <span class="marca-icono" aria-hidden="true">🌤️</span>
+      <h1 data-i18n="titulo">Clima Santiago</h1>
+    </div>
+    <div class="controles">
+      <label class="selector">
+        <span data-i18n="etiquetaLocalidad">Localidad</span>
+        <select id="selector-localidad"></select>
+      </label>
+      <button id="btn-actualizar" class="boton" type="button" data-i18n="actualizar">Actualizar</button>
+      <button id="btn-idioma" class="boton boton-idioma" type="button" aria-pressed="false">English</button>
+    </div>
+  </header>
+
+  <main>
+    <p id="estado" class="estado" role="status" hidden></p>
+    <section id="seccion-actual" hidden></section>
+    <section id="seccion-ayer" hidden></section>
+    <section id="seccion-pronostico" hidden></section>
+  </main>
+
+  <footer class="pie">
+    <span data-i18n="fuente">Datos: Open-Meteo.com (API gratuita)</span>
+  </footer>
+
+  <!-- Scripts clásicos (no módulos) para que funcionen abriendo el archivo con file:// -->
+  <script src="i18n/es.js"></script>
+  <script src="i18n/en.js"></script>
+  <script src="config/comunas.js"></script>
+  <script src="api/openmeteo.js"></script>
+  <script src="ui/iconos.js"></script>
+  <script src="ui/render.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
