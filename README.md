@@ -7,6 +7,8 @@ clima actual, día anterior y pronóstico de los próximos 4 días.
 - **Datos externos:** [Open-Meteo](https://open-meteo.com), API REST gratuita, sin API key.
 - **Idioma:** español por defecto; botón **English / Español** para cambiar.
 
+Nota: este programa tiene un fin académico.
+
 ## Cómo ejecutarla
 
 Opción rápida: abrir `src/index.html` directamente en el navegador (Chrome, Edge o Firefox).
